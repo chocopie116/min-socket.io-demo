@@ -35,7 +35,7 @@ io.sockets.on('connection', function (socket) {
     //クライアントからの通知を待ち受けている
     socket.on('from_client', function () {
         number++;
-        io.sockets.emit('all_clicks', number); //全員に送信
+        io.sockets.volatile.emit('all_clicks', number); //全員に送信  //volatileつけた時は、再送のリトライをかけない
         socket.emit('your_click', 1); //自分(クリックした人)のみに送信
         socket.broadcast.emit('other_click', 1); //自分(クリックした人)以外に送信
     });
