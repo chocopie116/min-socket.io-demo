@@ -2,6 +2,8 @@ min-socket.io-demo
 ==================
 ##introduction  
 みんなでクリックするアプリです。  
+![sample](https://dl.dropboxusercontent.com/u/2934570/archive/sample.png)  
+
 Nodejsさえ入っていれば、ローカルで動かすことができます。  
 入っていなくてもすぐインストール可能です。  
 
