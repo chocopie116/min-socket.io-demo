@@ -31,7 +31,7 @@
             $(function() {
                 var localMyClick = -1;
                 var localOtherClick = 0;
-                var socket = io.connect('http://192.168.33.10:3000/');
+                var socket = io.connect();
                 socket.emit('from_client', 1);
                 $('#myForm').submit(function(e) {
                     e.preventDefault();
