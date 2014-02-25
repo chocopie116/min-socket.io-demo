@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Socket.IO</title>
+    </head>
+    <body>
+        <div id='container' style="display:block; text-align:center;">
+            <h1>All-Click</h1>
+        <div id="odometer" class="odometer" style="font-size:150px; margin-bottom:10px;">0</div>
+
+        <form id="myForm" role="form">
+            <input type='hidden' value=1>
+            <button type="submit" class="btn btn-default btn-lg active">Click</button>
+        </form>
+
+        <h1>Your-Click</h1>
+        <p id="my-click" class="odometer" style='font-size:130px;'>0</p>
+
+        <h1>Other-Click</h1>
+        <p id="other-click" class="odometer" style='font-size:100px;'>0</p>
+
+        <link rel="stylesheet" href="http://github.hubspot.com/odometer/themes/odometer-theme-digital.css" />
+        <script src="http://github.hubspot.com/odometer/odometer.js"></script>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+
+        <script>
+            $(function() {
+                var localMyClick = -1;
+                var localOtherClick = 0;
+                var socket = io.connect('http://192.168.33.10:3000/');
+                socket.emit('from_client', 1);
+                $('#myForm').submit(function(e) {
+                    e.preventDefault();
+                    socket.emit('from_client', 1);
+                });
+
+                socket.on('all_clicks', function (number) {
+                    setTimeout(function() {
+                        odometer.innerHTML = number;
+                    }, 100);
+                });
+
+                socket.on('your_click', function () {
+                    localMyClick++;
+                    $('#my-click').text(localMyClick);
+                });
+
+                socket.on('other_click', function () {
+                    localOtherClick++;
+                    $('#other-click').text(localOtherClick);
+                });
+            });
+        </script>
+    </div>
+</body>
+</head>
