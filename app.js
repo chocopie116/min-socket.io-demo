@@ -18,8 +18,16 @@ function handler (req, res) {
                 res.end(data);
             });
 }
-
-io.set('log level', 1);
+io.configure('development', function(){
+    io.set('log level', 1);
+    io.set('transports', [
+        //'websocket' aws環境だとwebsocketでつなぐと遅延する問題を回避
+         'flashsocket'
+        , 'htmlfile'
+        , 'xhr-polling'
+        , 'jsonp-polling'
+        ]);
+});
 io.sockets.on('connection', function (socket) {
     //接続段階で現在の状態を通知
     io.sockets.emit('all_click', number);
