@@ -9,11 +9,11 @@ Nodejsさえ入っていれば、ローカルで動かすことができます�
 1. Node.jsを動く環境にする
 参考URL[これからnode.jsを始める人のためのインストール系エントリまとめ](http://d.hatena.ne.jp/replication/20110225/1298612129)  
 2. このプロジェクトをcloneする
-3. cloneしたプロジェクトのディレクトリで、npm installする  
+3. cloneしたプロジェクトのディレクトリで、npm installする
 ```
 npm install
 ```
-4. アプリを動かします。  
+4. アプリを動かします。
 ```
 node app.js
 ```
