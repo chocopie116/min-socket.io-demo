@@ -1,0 +1,22 @@
+{
+  "name": "min-socket.io-demo",
+  "version": "0.0.0",
+  "description": "min-socket.io-demo ==================",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chocopie116/min-socket.io-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chocopie116/min-socket.io-demo/issues"
+  },
+  "homepage": "https://github.com/chocopie116/min-socket.io-demo",
+  "dependencies": {
+    "socket.io": "~0.9.16"
+  }
+}
